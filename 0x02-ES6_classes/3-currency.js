@@ -5,7 +5,8 @@ export default class Currency {
   }
 
   setCode(code) {
-    this._code = code;
+    if (typeof code === 'string') this._code = code;
+    else throw new Error('Code must be a valid string');
   }
 
   getCode() {
@@ -13,7 +14,8 @@ export default class Currency {
   }
 
   setName(name) {
-    this._name = name;
+    if (typeof name === 'string') this._name = name;
+    else throw new Error('Name must be a valid string');
   }
 
   getName() {
