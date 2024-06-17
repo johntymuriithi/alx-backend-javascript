@@ -4,11 +4,11 @@ export default function guardrail(mathFunction) {
 
   try {
     const value = mathFunction();
-    queue.push(text);
-    queue.unshift(value);
+    queue.push(value);
   } catch (error) {
+    queue.push(String(error));
+  } finally {
     queue.push(text);
-    queue.unshift(error.message);
   }
 
   return queue;
