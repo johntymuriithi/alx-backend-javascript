@@ -4,25 +4,33 @@ export default class Currency {
     this._name = name;
   }
 
-  setCode(code) {
-    if (typeof code === 'string') this._code = code;
-    else throw new Error('Code must be a valid string');
-  }
-
-  getCode() {
+  // Getter for code
+  get code() {
     return this._code;
   }
 
-  setName(name) {
-    if (typeof name === 'string') this._name = name;
-    else throw new Error('Name must be a valid string');
+  // Setter for code
+  set code(value) {
+    if (typeof value !== 'string') {
+      throw new Error('Code must be a valid string');
+    }
+    this._code = value;
   }
 
-  getName() {
+  // Getter for name
+  get name() {
     return this._name;
   }
 
-  // our computed method over here
+  // Setter for name
+  set name(value) {
+    if (typeof value !== 'string') {
+      throw new Error('Name must be a valid string');
+    }
+    this._name = value;
+  }
+
+  // Method to display full currency
   displayFullCurrency() {
     return `${this._name} (${this._code})`;
   }
